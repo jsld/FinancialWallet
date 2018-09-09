@@ -1,0 +1,30 @@
+﻿<wpf:Dialog
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:b="http://www.scheshan.com/bootstrap"
+        x:Class="FinancialWallet.MainWindow"
+        xmlns:wpf="http://github.com/scheshan/bootstrap"
+        xmlns:view="clr-namespace:FinancialWallet.Views"
+        Title="Demo" Height="700" Width="800">
+
+    <TabControl TabStripPlacement="Left">
+        <TabItem Header="Button">
+            <view:Buttons/>
+        </TabItem>
+
+        <TabItem Header="List">
+            <view:List/>
+        </TabItem>
+
+        <TabItem Header="Text">
+            <view:Text/>
+        </TabItem>
+        
+        <TabItem Header="ProgressBar">
+            <view:ProgressBar/>
+        </TabItem>
+        <TabItem Header="Panel">
+            <view:Panel/>
+        </TabItem>
+    </TabControl>
+</wpf:Dialog>
