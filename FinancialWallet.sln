@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28010.2019
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialWallet", "FinancialWallet\FinancialWallet.csproj", "{E289AFDD-15AB-4B1A-8202-C8D87FBF2E3F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1805BEE0-0CA8-4525-9DF5-32D0D2B9C7C1} = {1805BEE0-0CA8-4525-9DF5-32D0D2B9C7C1}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.Bootstrap", "WPF.Bootstrap\WPF.Bootstrap.csproj", "{734839C0-6FA8-4514-BD97-EABD72B35246}"
 EndProject

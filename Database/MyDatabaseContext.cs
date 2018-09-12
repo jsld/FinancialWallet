@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,23 +7,21 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    class MyDatabaseContext
+    public class MyDatabaseContext : DbContext
     {
-        /*
-        public class Person
+        public DbSet<Empresa> Empresas { get; set; }
+        public DbSet<HistorialTarjetaCredito> HistorialTarjetaCreditos { get; set; }
+        public DbSet<MasterData> MasterDatas { get; set; }
+        public DbSet<MasterState> MasterStates { get; set; }
+        public DbSet<MasterType> MasterTypes { get; set; }
+        public DbSet<Pagos> Pagos { get; set; }
+        public DbSet<Servicio> Servicios { get; set; }
+        public DbSet<Transaccion> Transacciones { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            public int Id { get; set; }
-            public string Name { get; set; }
+            optionsBuilder.UseSqlite("Data Source=MyDatabase.sqlite");
         }
-        public class DatabaseContext : DbContext
-        {
-            public DbSet&lt;Person&gt; Persons { get; set; }
- 
-            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            {
-                optionsBuilder.UseSqlite("Data Source=MyDatabase.sqlite");
-            }
-        }
-         */
+        
     }
 }
