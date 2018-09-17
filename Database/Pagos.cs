@@ -10,9 +10,10 @@ namespace Database
     {
         public int Id { get; set; }
         public int TransaccionId { get; set; }
-        public int MontoTotal { get; set; }
-        public int TotalAbonado { get; set; }
-        public int TipoTransaccionId { get; set; }
-        public int EstadoTransaccionId { get; set; }
+        public int Monto { get; set; }
+        public int TipoDePagoId { get; set; }
+
+        public Transaccion Transaccion { get; set; }
+        public MasterData TipoDePago { get; set; }
     }
 }

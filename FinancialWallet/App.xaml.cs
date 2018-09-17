@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Microsoft.EntityFrameworkCore;
+using Database;
 
 namespace FinancialWallet
 {
@@ -13,5 +15,14 @@ namespace FinancialWallet
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            InitializeComponent();
+
+            using (MyDatabaseContext dbContext = new MyDatabaseContext())
+            {
+                dbContext.Database.Migrate();
+            }
+        }
     }
 }

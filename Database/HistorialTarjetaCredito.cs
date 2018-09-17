@@ -10,9 +10,16 @@ namespace Database
     {
         public int Id { get; set; }
         public int PagoId { get; set; }
+        public int TarjetaId { get; set; }
         public int NumeroCuotas { get; set; }
-        public int CuotaActual { get; set; }
         public int MontoTotal { get; set; }
-        public string FechaVencimiento { get; set; }
+        public int? HistorialTarjetaId { get; set; }
+        public int? Cuota { get; set; }
+        public int? MontoCuota { get; set; }
+        public DateTime? VencimientoCuota { get; set; }
+
+        public Pagos Pagos { get; set; }
+        public Tarjetas Tarjetas { get; set; }
+        public HistorialTarjetaCredito HistorialTC { get; set; }
     }
 }

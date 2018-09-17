@@ -222,6 +222,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Database\Database.csproj">
+      <Project>{1805BEE0-0CA8-4525-9DF5-32D0D2B9C7C1}</Project>
+      <Name>Database</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WPF.Bootstrap\WPF.Bootstrap.csproj">
       <Project>{734839c0-6fa8-4514-bd97-eabd72b35246}</Project>
       <Name>WPF.Bootstrap</Name>

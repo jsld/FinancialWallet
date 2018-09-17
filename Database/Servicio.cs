@@ -9,12 +9,19 @@ namespace Database
     public class Servicio
     {
         public int Id { get; set; }
-        public int DescripcionId { get; set; }
-        public string Nombre { get; set; }
+        public int TipoDeServicioId { get; set; }
+        public string Name { get; set; }
         public int TipoAdjudicacionId { get; set; }
         public int EstadoId { get; set; }
-        public string FechaAdjudicacion { get; set; }
-        public string FechaInicio { get; set; }
-        public string FechaTermino { get; set; }
+        public bool Facturado { get; set; }
+        public int Valor { get; set; }
+        public int? Costo { get; set; }
+        public DateTime FechaAdjudicacion { get; set; }
+        public DateTime? FechaInicio { get; set; }
+        public DateTime? FechaTermino { get; set; }
+
+        public MasterData TipoDeServicio { get; set; }
+        public MasterData TipoAdjudicacion { get; set; }
+        public MasterData Estado { get; set; }
     }
 }
