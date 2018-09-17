@@ -155,7 +155,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="bd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
