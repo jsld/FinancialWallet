@@ -18,7 +18,9 @@ namespace FinancialWallet
         public App()
         {
             InitializeComponent();
-
+            SQLitePCL.Batteries.Init();
+            //SQLitePCL.raw.SetProvider();
+            //{ "You need to call .  If you are using a bundle package, this is done by calling ."}
             using (MyDatabaseContext dbContext = new MyDatabaseContext())
             {
                 dbContext.Database.Migrate();
