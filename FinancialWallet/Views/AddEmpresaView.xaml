@@ -6,10 +6,12 @@
              xmlns:bootstrap="http://github.com/scheshan/bootstrap"
              xmlns:local="clr-namespace:FinancialWallet.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="600">
+             d:DesignWidth="600">
+    <!--d:DesignHeight="700"-->
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="290"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -17,6 +19,7 @@
 
         <bootstrap:BootstrapPanel Margin="10"
                                   Type="Primary"
+                                  Grid.Row="0"
                                   Header="Agregar nueva empresa o proveedor.">
 
             <Grid>
@@ -36,7 +39,7 @@
                        HorizontalAlignment="Center"
                        Grid.Column="0"
                        Grid.Row="0">
-                    Nombre Empresa:
+                    Nombre:
                 </Label>
 
                 <Grid Grid.Column="0"
@@ -45,9 +48,9 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="6*"/>
-                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="70*"/>
+                        <ColumnDefinition Width="15*"/>
                     </Grid.ColumnDefinitions>
                     <TextBox Grid.Column="1"
                              Margin="5"
@@ -61,7 +64,7 @@
                        HorizontalAlignment="Center"
                        Grid.Column="1"
                        Grid.Row="0">
-                    Tipo Empresa:
+                    Tipo:
                 </Label>
 
                 <Grid Grid.Column="1"
@@ -86,7 +89,7 @@
                        HorizontalAlignment="Center"
                        Grid.Column="0"
                        Grid.Row="3">
-                    Código Empresa:
+                    Código:
                 </Label>
 
                 <Grid Grid.Column="0"
@@ -114,9 +117,58 @@
             </Grid>
 
             <bootstrap:BootstrapPanel.Footer>
-                <TextBlock>footer</TextBlock>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Style="{StaticResource WarningButton}"
+                            Grid.Column="1"
+                            HorizontalAlignment="Center"
+                            Click="CrearEmpresa_Click"
+                            Content="Crear Entidad"/>
+                </Grid>
             </bootstrap:BootstrapPanel.Footer>
         </bootstrap:BootstrapPanel>
         
+<!--MOSTRAR EMPRESAS-->
+        <bootstrap:BootstrapPanel Margin="10"
+                                  Type="Info"
+                                  Grid.Row="1"
+                                  Header="Empresas y proveedores existentes.">
+            <Grid
+                Margin="3,3,3,3">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TabControl TabStripPlacement="Top">
+                    <TabItem Header="Empresas">
+                        <Border BorderBrush="#FF000000" BorderThickness="1,1,1,1">
+                            <ScrollViewer>
+                                <StackPanel x:Name="empresasPanel">
+                                    
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Border>
+                    </TabItem>
+                    <TabItem Header="Proveedores">
+                        <Border BorderBrush="#FF000000" BorderThickness="1,1,1,1">
+                            <ScrollViewer>
+                                <StackPanel x:Name="proveedoresPanel">
+                                    
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Border>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </bootstrap:BootstrapPanel>
     </Grid>
 </UserControl>
