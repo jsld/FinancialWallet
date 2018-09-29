@@ -148,6 +148,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\EmpresaViewModel.cs" />
+    <Compile Include="Resources\GlobalValues.cs" />
     <Compile Include="Views\AddEmpresaView.xaml.cs">
       <DependentUpon>AddEmpresaView.xaml</DependentUpon>
     </Compile>

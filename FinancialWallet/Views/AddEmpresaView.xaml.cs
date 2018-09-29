@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
+using FinancialWallet.Resources;
+using Database;
 namespace FinancialWallet.Views
 {
     /// <summary>
@@ -26,6 +17,12 @@ namespace FinancialWallet.Views
         }
 
         private void CrearEmpresa_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewEmpresaRow();
+        }
+
+        #region Metodos Privados Vista
+        private void AddNewEmpresaRow()
         {
             Border border = new Border
             {
@@ -55,7 +52,7 @@ namespace FinancialWallet.Views
             TextBox idEmpresa = new TextBox
             {
                 Text = "ID",
-                Name = "IdEmpresa",
+                Name = "TBEmpresaId",
                 IsEnabled = false,
                 Margin = new Thickness(10)
             };
@@ -64,8 +61,8 @@ namespace FinancialWallet.Views
 
             TextBox nameEmpresa = new TextBox
             {
-                Text = "Delight Eventos",
-                Name = "NameEmpresa",
+                Text = TBAddEmpresaName.Text,
+                Name = "TBEmpresaName",
                 IsEnabled = false,
                 Margin = new Thickness(10)
             };
@@ -75,17 +72,18 @@ namespace FinancialWallet.Views
             TextBox codeEmpresa = new TextBox
             {
                 Text = "Code",
-                Name = "CodeEmpresa",
+                Name = "TBEmpresaCode",
                 IsEnabled = false,
                 Margin = new Thickness(10)
             };
             Grid.SetColumn(codeEmpresa, 2);
             Grid.SetRow(codeEmpresa, 0);
-            
+
             Button btnDelete = new Button
             {
                 Style = (Style)FindResource("DangerButton"),
                 Content = "Borrar",
+                Name = "TBEmpresaDelete",
                 Margin = new Thickness(10)
             };
             Grid.SetColumn(btnDelete, 3);
@@ -100,5 +98,25 @@ namespace FinancialWallet.Views
 
             empresasPanel.Children.Add(border);
         }
+        #endregion
+
+        #region Metodos Privados Base Datos
+        #endregion
+
+        #region Metodos Privados Business
+        private string SetCodeForEmpresa(string type, string name, int id)
+        {
+            string code = string.Empty;
+            if (type == GlobalValues.CODE_EMPRESA)
+            {
+                code = "E" + id.ToString() + name.First().ToString();
+            }
+            else
+            {
+                code = "P" + id.ToString() + name.First().ToString();
+            }
+            return code;
+        }
+        #endregion
     }
 }
