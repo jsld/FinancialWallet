@@ -6,6 +6,7 @@
              xmlns:bootstrap="http://github.com/scheshan/bootstrap"
              xmlns:local="clr-namespace:FinancialWallet.Views"
              mc:Ignorable="d" 
+             Name="AddEmpresaPartial"
              d:DesignWidth="600">
     <!--d:DesignHeight="700"-->
     <Grid>
@@ -54,6 +55,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBox Grid.Column="1"
                              Margin="5"
+                             IsMouseCapturedChanged="BtnCancelAppear"
                              x:Name="TBAddEmpresaName">
                     </TextBox>
                 </Grid>
@@ -79,7 +81,9 @@
                     </Grid.ColumnDefinitions>
                     <ComboBox Grid.Column="1"
                               Margin="5"
+                              IsMouseCapturedChanged="BtnCancelAppear"
                               x:Name="CBAddEmpresaType">
+                        <ComboBoxItem Content="Seleccione un Tipo" Tag="0"/>
                     </ComboBox>
                 </Grid>
 <!--FIN SEGUNDA FILA-->
@@ -111,6 +115,7 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Right"
                             Grid.Column="2"
+                            Click="GenerarCodigo_Click"
                             Content="Generar Código"/>
                 </Grid>
 <!--FIN TERCERA FILA-->
@@ -122,11 +127,33 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="6*"/>
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
+                    <Button Style="{StaticResource DangerButton}"
+                            Grid.Column="0"
+                            Visibility="Hidden"
+                            IsEnabled="False"
+                            HorizontalAlignment="Center"
+                            Name="BtnCancel"
+                            Click="CancelarEmpresa_Click"
+                            Content=" Cancelar "/>
+                    
+                    <bootstrap:Alert Type="Info"
+                                     Grid.Column="1"
+                                     Margin="10,0,10,0"
+                                     Padding="7"
+                                     Name="InfoEditEmpresa"
+                                     Visibility="Hidden">
+                        <TextBlock>
+                            <Run Text="Nota:" FontWeight="Bold"/>
+                            <Run Text="Para salir de modo edición, presione cancelar."/>
+                        </TextBlock>
+                    </bootstrap:Alert>
+                    
                     <Button Style="{StaticResource WarningButton}"
-                            Grid.Column="1"
+                            Grid.Column="2"
                             HorizontalAlignment="Center"
                             Click="CrearEmpresa_Click"
                             Content="Crear Entidad"/>

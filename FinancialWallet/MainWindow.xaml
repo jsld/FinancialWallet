@@ -5,7 +5,7 @@
         x:Class="FinancialWallet.MainWindow"
         xmlns:wpf="http://github.com/scheshan/bootstrap"
         xmlns:view="clr-namespace:FinancialWallet.Views"
-        Title="Financial Wallet: Administrador" Height="700" MinWidth="800">
+        Title="Financial Wallet: Administrador" MinHeight="650" MinWidth="800">
 
     <TabControl TabStripPlacement="Left">
         <TabItem Header="Button">

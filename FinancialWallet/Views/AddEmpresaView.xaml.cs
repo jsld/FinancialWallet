@@ -1,9 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using FinancialWallet.Resources;
 using Database;
+
 namespace FinancialWallet.Views
 {
     /// <summary>
@@ -19,6 +21,57 @@ namespace FinancialWallet.Views
         private void CrearEmpresa_Click(object sender, RoutedEventArgs e)
         {
             AddNewEmpresaRow();
+        }
+
+        private void GenerarCodigo_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int typeId = Convert.ToInt32((string)((ComboBoxItem)CBAddEmpresaType.SelectedItem).Tag);
+                string name = TBAddEmpresaName.Text;
+                if (typeId != 0 && name != string.Empty)
+                {
+                    string type = (string)((ComboBoxItem)CBAddEmpresaType.SelectedItem).Content;
+                    Empresa empresa = GetEmpresa();
+                    int id = empresa is null ? 0 : empresa.Id;
+                    var codigoEmpresa = SetCodeForEmpresa(type, name, id + 1);
+                    TBAddEmpresaCode.Text = codigoEmpresa;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Verifique nombre, tipo y código de la entidad.\n\n"+ex.Message);
+            }
+        }
+
+        private void CancelarEmpresa_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Se cancelará la creación de nueva Entidad.");
+            var tabControl = ((TabControl)((TabItem)AddEmpresaPartial.Parent).Parent);
+            foreach (TabItem item in tabControl.Items)
+            {
+                item.IsEnabled = true;
+            }
+            BtnCancel.IsEnabled = false;
+            BtnCancel.Visibility = Visibility.Hidden;
+            InfoEditEmpresa.Visibility = Visibility.Hidden;
+            TBAddEmpresaName.Text = string.Empty;
+            CBAddEmpresaType.SelectedIndex = 0;
+        }
+
+        private void BtnCancelAppear(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (!BtnCancel.IsEnabled)
+            {
+                var tabControl = ((TabControl)((TabItem)AddEmpresaPartial.Parent).Parent);
+                foreach (TabItem item in tabControl.Items)
+                {
+                    item.IsEnabled = false;
+                }
+                BtnCancel.IsEnabled = true;
+                BtnCancel.Visibility = Visibility.Visible;
+                InfoEditEmpresa.Visibility = Visibility.Visible;
+            }
         }
 
         #region Metodos Privados Vista
@@ -101,6 +154,15 @@ namespace FinancialWallet.Views
         #endregion
 
         #region Metodos Privados Base Datos
+        private Empresa GetEmpresa()
+        {
+            var response = new Empresa();
+            using (MyDatabaseContext dbContext = new MyDatabaseContext())
+            {
+                response = dbContext.Empresas.LastOrDefault();
+            }
+            return response;
+        }
         #endregion
 
         #region Metodos Privados Business
