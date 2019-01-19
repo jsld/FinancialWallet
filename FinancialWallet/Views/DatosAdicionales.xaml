@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="FinancialWallet.Views.AddEmpresaView"
+﻿<UserControl x:Class="FinancialWallet.Views.DatosAdicionales"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
              xmlns:bootstrap="http://github.com/scheshan/bootstrap"
              xmlns:local="clr-namespace:FinancialWallet.Views"
              mc:Ignorable="d" 
-             Name="AddEmpresaPartial"
+             Name="DatosAdicionalesPartial"
              d:DesignWidth="600">
     <!--d:DesignHeight="700"-->
     <UserControl.Resources>
@@ -53,7 +53,7 @@
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
-<!--PRIMERA FILA-->
+                <!--PRIMERA FILA-->
                 <Label Foreground="{StaticResource BgPrimary}"
                        Style="{StaticResource SubTitle}"
                        HorizontalAlignment="Center"
@@ -78,9 +78,9 @@
                              x:Name="TBAddEmpresaName">
                     </TextBox>
                 </Grid>
-<!--FIN PRIMERA FILA-->
+                <!--FIN PRIMERA FILA-->
 
-<!--SEGUNDA FILA-->
+                <!--SEGUNDA FILA-->
                 <Label Foreground="{StaticResource BgPrimary}"
                        Style="{StaticResource SubTitle}"
                        HorizontalAlignment="Center"
@@ -110,9 +110,9 @@
                                       IsSelected="True"/>
                     </ComboBox>
                 </Grid>
-<!--FIN SEGUNDA FILA-->
+                <!--FIN SEGUNDA FILA-->
 
-<!--TERCERA FILA-->
+                <!--TERCERA FILA-->
                 <Label Foreground="{StaticResource BgPrimary}"
                        Style="{StaticResource SubTitle}"
                        HorizontalAlignment="Center"
@@ -143,7 +143,7 @@
                             Click="GenerarCodigo_Click"
                             Content="Generar Código"/>
                 </Grid>
-<!--FIN TERCERA FILA-->
+                <!--FIN TERCERA FILA-->
             </Grid>
 
             <bootstrap:BootstrapPanel.Footer>
@@ -164,7 +164,7 @@
                             Name="BtnCancel"
                             Click="CancelarEmpresa_Click"
                             Content=" Cancelar "/>
-                    
+
                     <bootstrap:Alert Type="Info"
                                      Grid.Column="1"
                                      Margin="10,0,10,0"
@@ -176,7 +176,7 @@
                             <Run Text="Para salir de modo edición, presione cancelar."/>
                         </TextBlock>
                     </bootstrap:Alert>
-                    
+
                     <Button Style="{StaticResource WarningButton}"
                             Grid.Column="2"
                             HorizontalAlignment="Center"
@@ -185,8 +185,8 @@
                 </Grid>
             </bootstrap:BootstrapPanel.Footer>
         </bootstrap:BootstrapPanel>
-        
-<!--MOSTRAR EMPRESAS-->
+
+        <!--MOSTRAR EMPRESAS-->
         <bootstrap:BootstrapPanel Type="Info"
                                   Grid.Row="2">
             <bootstrap:BootstrapPanel.Header>
@@ -209,7 +209,7 @@
                         <Border BorderBrush="#FF000000" BorderThickness="1,1,1,1">
                             <ScrollViewer>
                                 <StackPanel x:Name="empresasPanel">
-                                    
+
                                 </StackPanel>
                             </ScrollViewer>
                         </Border>
@@ -218,7 +218,7 @@
                         <Border BorderBrush="#FF000000" BorderThickness="1,1,1,1">
                             <ScrollViewer>
                                 <StackPanel x:Name="proveedoresPanel">
-                                    
+
                                 </StackPanel>
                             </ScrollViewer>
                         </Border>

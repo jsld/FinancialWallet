@@ -12,5 +12,10 @@ namespace FinancialWallet.Resources
         {
             get { return "EMPRESA"; }
         }
+
+        public static string CODE_PROVEEDOR
+        {
+            get { return "PROVEEDOR"; }
+        }
     }
 }

@@ -20,7 +20,24 @@ namespace FinancialWallet.Views
 
         private void CrearEmpresa_Click(object sender, RoutedEventArgs e)
         {
-            AddNewEmpresaRow();
+            try
+            {
+                int typeId = Convert.ToInt32((string)((ComboBoxItem)CBAddEmpresaType.SelectedItem).Tag);
+                var name = TBAddEmpresaName.Text;
+                var code = TBAddEmpresaCode.Text;
+                if (typeId != 0 && name != string.Empty && code != string.Empty)
+                {
+                    AddNewEmpresaRow(typeId,name,code);
+                }
+                else
+                {
+                    MessageBox.Show("Error: Verifique nombre, tipo y código de la entidad.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: No se pudo realizar guardado de nueva entridad.\n\n" + ex.Message);
+            }
         }
 
         private void GenerarCodigo_Click(object sender, RoutedEventArgs e)
@@ -32,15 +49,19 @@ namespace FinancialWallet.Views
                 if (typeId != 0 && name != string.Empty)
                 {
                     string type = (string)((ComboBoxItem)CBAddEmpresaType.SelectedItem).Content;
-                    Empresa empresa = GetEmpresa();
+                    Empresa empresa = GetLastEmpresa();
                     int id = empresa is null ? 0 : empresa.Id;
                     var codigoEmpresa = SetCodeForEmpresa(type, name, id + 1);
                     TBAddEmpresaCode.Text = codigoEmpresa;
                 }
+                else
+                {
+                    MessageBox.Show("Error: Verifique nombre y tipo de la entidad.");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: Verifique nombre, tipo y código de la entidad.\n\n"+ex.Message);
+                MessageBox.Show("Error: Verifique nombre y tipo de la entidad.\n\n"+ex.Message);
             }
         }
 
@@ -59,6 +80,12 @@ namespace FinancialWallet.Views
             CBAddEmpresaType.SelectedIndex = 0;
         }
 
+        private void BorrarEmpresa_Click(object sender, RoutedEventArgs e)
+        {
+            var name = ((TextBox)((Grid)((Button)sender).Parent).Children[1]).Text;
+            MessageBox.Show("Se Borrará la empresa " + name);
+        }
+
         private void BtnCancelAppear(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (!BtnCancel.IsEnabled)
@@ -75,7 +102,10 @@ namespace FinancialWallet.Views
         }
 
         #region Metodos Privados Vista
-        private void AddNewEmpresaRow()
+        private void AddNewEmpresaRow(
+            int id,
+            string name,
+            string code)
         {
             Border border = new Border
             {
@@ -104,7 +134,7 @@ namespace FinancialWallet.Views
 
             TextBox idEmpresa = new TextBox
             {
-                Text = "ID",
+                Text = id.ToString(),
                 Name = "TBEmpresaId",
                 IsEnabled = false,
                 Margin = new Thickness(10)
@@ -114,7 +144,7 @@ namespace FinancialWallet.Views
 
             TextBox nameEmpresa = new TextBox
             {
-                Text = TBAddEmpresaName.Text,
+                Text = name,
                 Name = "TBEmpresaName",
                 IsEnabled = false,
                 Margin = new Thickness(10)
@@ -124,7 +154,7 @@ namespace FinancialWallet.Views
 
             TextBox codeEmpresa = new TextBox
             {
-                Text = "Code",
+                Text = code,
                 Name = "TBEmpresaCode",
                 IsEnabled = false,
                 Margin = new Thickness(10)
@@ -139,6 +169,8 @@ namespace FinancialWallet.Views
                 Name = "TBEmpresaDelete",
                 Margin = new Thickness(10)
             };
+            btnDelete.Click += new RoutedEventHandler(BorrarEmpresa_Click);
+
             Grid.SetColumn(btnDelete, 3);
             Grid.SetRow(btnDelete, 0);
 
@@ -154,7 +186,7 @@ namespace FinancialWallet.Views
         #endregion
 
         #region Metodos Privados Base Datos
-        private Empresa GetEmpresa()
+        private Empresa GetLastEmpresa()
         {
             var response = new Empresa();
             using (MyDatabaseContext dbContext = new MyDatabaseContext())
