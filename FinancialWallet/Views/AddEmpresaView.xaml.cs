@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using FinancialWallet.Resources;
-using Database;
+using DataBase;
 
 namespace FinancialWallet.Views
 {
@@ -49,10 +49,10 @@ namespace FinancialWallet.Views
                 if (typeId != 0 && name != string.Empty)
                 {
                     string type = (string)((ComboBoxItem)CBAddEmpresaType.SelectedItem).Content;
-                    Empresa empresa = GetLastEmpresa();
-                    int id = empresa is null ? 0 : empresa.Id;
-                    var codigoEmpresa = SetCodeForEmpresa(type, name, id + 1);
-                    TBAddEmpresaCode.Text = codigoEmpresa;
+                    //Empresa empresa = GetLastEmpresa();
+                    //int id = empresa is null ? 0 : empresa.Id;
+                    //var codigoEmpresa = SetCodeForEmpresa(type, name, id + 1);
+                    //TBAddEmpresaCode.Text = codigoEmpresa;
                 }
                 else
                 {
@@ -186,6 +186,7 @@ namespace FinancialWallet.Views
         #endregion
 
         #region Metodos Privados Base Datos
+        /*
         private Empresa GetLastEmpresa()
         {
             var response = new Empresa();
@@ -210,7 +211,7 @@ namespace FinancialWallet.Views
                 code = "P" + id.ToString() + name.First().ToString();
             }
             return code;
-        }
+        }*/
         #endregion
     }
 }

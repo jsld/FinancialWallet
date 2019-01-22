@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.EntityFrameworkCore;
-using Database;
+using DataBase;
 
 namespace FinancialWallet
 {
@@ -21,10 +21,10 @@ namespace FinancialWallet
             SQLitePCL.Batteries.Init();
             //SQLitePCL.raw.SetProvider();
             //{ "You need to call .  If you are using a bundle package, this is done by calling ."}
-            using (MyDatabaseContext dbContext = new MyDatabaseContext())
-            {
-                dbContext.Database.Migrate();
-            }
+            //using (MyDatabaseContext dbContext = new MyDatabaseContext())
+            //{
+            //    dbContext.Database.Migrate();
+            //}
         }
     }
 }
