@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using FinancialWallet.Resources;
 using DataBase;
+using FinancialWallet.Controller;
 
 namespace FinancialWallet.Views
 {
@@ -17,75 +18,7 @@ namespace FinancialWallet.Views
         {
             InitializeComponent();
         }
-
-        private void CrearEmpresa_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                int typeId = Convert.ToInt32((string)((ComboBoxItem)CBAddEmpresaType.SelectedItem).Tag);
-                var name = TBAddEmpresaName.Text;
-                var code = TBAddEmpresaCode.Text;
-                if (typeId != 0 && name != string.Empty && code != string.Empty)
-                {
-                    AddNewEmpresaRow(typeId,name,code);
-                }
-                else
-                {
-                    MessageBox.Show("Error: Verifique nombre, tipo y código de la entidad.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: No se pudo realizar guardado de nueva entridad.\n\n" + ex.Message);
-            }
-        }
-
-        private void GenerarCodigo_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                int typeId = Convert.ToInt32((string)((ComboBoxItem)CBAddEmpresaType.SelectedItem).Tag);
-                string name = TBAddEmpresaName.Text;
-                if (typeId != 0 && name != string.Empty)
-                {
-                    string type = (string)((ComboBoxItem)CBAddEmpresaType.SelectedItem).Content;
-                    //Empresa empresa = GetLastEmpresa();
-                    //int id = empresa is null ? 0 : empresa.Id;
-                    //var codigoEmpresa = SetCodeForEmpresa(type, name, id + 1);
-                    //TBAddEmpresaCode.Text = codigoEmpresa;
-                }
-                else
-                {
-                    MessageBox.Show("Error: Verifique nombre y tipo de la entidad.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: Verifique nombre y tipo de la entidad.\n\n"+ex.Message);
-            }
-        }
-
-        private void CancelarEmpresa_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Se cancelará la creación de nueva Entidad.");
-            var tabControl = ((TabControl)((TabItem)AddEmpresaPartial.Parent).Parent);
-            foreach (TabItem item in tabControl.Items)
-            {
-                item.IsEnabled = true;
-            }
-            BtnCancel.IsEnabled = false;
-            BtnCancel.Visibility = Visibility.Hidden;
-            InfoEditEmpresa.Visibility = Visibility.Hidden;
-            TBAddEmpresaName.Text = string.Empty;
-            CBAddEmpresaType.SelectedIndex = 0;
-        }
-
-        private void BorrarEmpresa_Click(object sender, RoutedEventArgs e)
-        {
-            var name = ((TextBox)((Grid)((Button)sender).Parent).Children[1]).Text;
-            MessageBox.Show("Se Borrará la empresa " + name);
-        }
-
+        
         private void BtnCancelAppear(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (!BtnCancel.IsEnabled)
@@ -169,7 +102,7 @@ namespace FinancialWallet.Views
                 Name = "TBEmpresaDelete",
                 Margin = new Thickness(10)
             };
-            btnDelete.Click += new RoutedEventHandler(BorrarEmpresa_Click);
+            btnDelete.Click += new RoutedEventHandler(BorrarEntidad_Click);
 
             Grid.SetColumn(btnDelete, 3);
             Grid.SetRow(btnDelete, 0);
@@ -185,33 +118,132 @@ namespace FinancialWallet.Views
         }
         #endregion
 
-        #region Metodos Privados Base Datos
-        /*
-        private Empresa GetLastEmpresa()
+        #region Eventos
+        //CREAR EMPRESA
+        private void CrearEmpresa_Click(object sender, RoutedEventArgs e)
         {
-            var response = new Empresa();
-            using (MyDatabaseContext dbContext = new MyDatabaseContext())
+            try
             {
-                response = dbContext.Empresas.LastOrDefault();
+                int typeId = (int)((ComboBoxItem)CBAddEmpresaType.SelectedItem).Tag;
+                var name = TBAddEmpresaName.Text;
+                var code = TBAddEmpresaCode.Text;
+                if (typeId != 0 && name != string.Empty && code != string.Empty)
+                {
+                    AddNewEmpresaRow(typeId, name, code);
+
+                    var tabControl = ((TabControl)((TabItem)AddEmpresaPartial.Parent).Parent);
+                    foreach (TabItem item in tabControl.Items)
+                    {
+                        item.IsEnabled = true;
+                    }
+                    BtnCancel.IsEnabled = false;
+                    BtnCancel.Visibility = Visibility.Hidden;
+                    InfoEditEmpresa.Visibility = Visibility.Hidden;
+                    TBAddEmpresaName.Text = string.Empty;
+                    TBAddEmpresaCode.Text = string.Empty;
+                    CBAddEmpresaType.SelectedIndex = 0;
+                }
+                else
+                {
+                    MessageBox.Show("Error: Verifique nombre, tipo y código de la entidad.");
+                }
             }
-            return response;
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: No se pudo realizar guardado de nueva entridad.\n\n" + ex.Message);
+            }
+        }
+
+        //GENERAR CODIGO
+        private void GenerarCodigo_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int typeId = (int)((ComboBoxItem)CBAddEmpresaType.SelectedItem).Tag;
+                string name = TBAddEmpresaName.Text;
+                if (typeId != 0 && name != string.Empty)
+                {
+                    string type = (string)((ComboBoxItem)CBAddEmpresaType.SelectedItem).Content;
+                    var result = SaveController.GetLastEntidad();
+                    if (result.IsValid && result.Entidad != null)
+                    {
+                        int id = result.Entidad.EntidadId;
+                        var codigoEmpresa = SetCodeForEmpresa(type, name, id);
+                        TBAddEmpresaCode.Text = codigoEmpresa;
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Error: Verifique nombre y tipo de la entidad.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Verifique nombre y tipo de la entidad.\n\n" + ex.Message);
+            }
+        }
+
+        //CAMBIO DE TAB ITEM
+        private void AddEmpresaPartial_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (CBAddEmpresaType.Items.Count == 1)
+            {
+                ViewController.FillComboboxEntity(CBAddEmpresaType);
+            }
+        }
+
+        //BORRAR ENTIDAD
+        private void BorrarEntidad_Click(object sender, RoutedEventArgs e)
+        {
+            var name = ((TextBox)((Grid)((Button)sender).Parent).Children[1]).Text;
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox
+                .Show("¿Desea borrar a " + name + "de la base de datos?",
+                "Borrar entidad", System.Windows.MessageBoxButton.YesNo);
+
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                MessageBox.Show("Se ha borrado exitosamente a:" + name);
+            }
+        }
+
+        //CANCELAR CREACIÓN DE ENTIDAD
+        private void CancelarEntidad_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Se cancelará la creación de nueva Entidad.");
+            var tabControl = ((TabControl)((TabItem)AddEmpresaPartial.Parent).Parent);
+            foreach (TabItem item in tabControl.Items)
+            {
+                item.IsEnabled = true;
+            }
+            BtnCancel.IsEnabled = false;
+            BtnCancel.Visibility = Visibility.Hidden;
+            InfoEditEmpresa.Visibility = Visibility.Hidden;
+            TBAddEmpresaName.Text = string.Empty;
+            TBAddEmpresaCode.Text = string.Empty;
+            CBAddEmpresaType.SelectedIndex = 0;
         }
         #endregion
 
-        #region Metodos Privados Business
         private string SetCodeForEmpresa(string type, string name, int id)
         {
             string code = string.Empty;
-            if (type == GlobalValues.CODE_EMPRESA)
+            switch (type)
             {
-                code = "E" + id.ToString() + name.First().ToString();
+                case GlobalValues.EMPRESA:
+                    code = GlobalValues.CODE_EMPRESA + id.ToString() + name.First().ToString();
+                    break;
+                case GlobalValues.PROVEEDOR:
+                    code = GlobalValues.CODE_PROVEEDOR + id.ToString() + name.First().ToString();
+                    break;
+                default:
+                    code = GlobalValues.CODE_PERSONA + id.ToString() + name.First().ToString();
+                    break;
             }
-            else
-            {
-                code = "P" + id.ToString() + name.First().ToString();
-            }
+            
             return code;
-        }*/
-        #endregion
+        }
+
+        
     }
 }

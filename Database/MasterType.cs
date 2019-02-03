@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Data.Linq.Mapping;
 using System.Data.SQLite;
 using System.Diagnostics;
 using System.Linq;
@@ -12,17 +12,17 @@ using System.Threading.Tasks;
 
 namespace DataBase
 {
-    [Table(Name = "MASTER_TYPE")]
+    [Table("MASTER_TYPE")]
     public class MasterType
     {
-        [Column(Name = "MASTER_TYPE_ID", IsDbGenerated = true, IsPrimaryKey = true, DbType = "INTEGER")]
-        [Key]
+        [Column("MASTER_TYPE_ID")]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MasterTypeId { get; set; }
 
-        [Column(Name = "CODIGO", CanBeNull = false, DbType = "STRING")]
+        [Column("CODIGO")]
         public string Codigo { get; set; }
 
-        [Column(Name = "TIPO", CanBeNull = false, DbType = "STRING")]
+        [Column("TIPO")]
         public string Tipo { get; set; }
     }
 }

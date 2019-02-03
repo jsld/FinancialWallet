@@ -6,8 +6,9 @@
              xmlns:bootstrap="http://github.com/scheshan/bootstrap"
              xmlns:local="clr-namespace:FinancialWallet.Views"
              mc:Ignorable="d" 
-             Name="AddEmpresaPartial"
-             d:DesignWidth="600">
+             x:Name="AddEmpresaPartial"
+             d:DesignWidth="600"
+             Selector.SelectionChanged="AddEmpresaPartial_SelectionChanged">
     <!--d:DesignHeight="700"-->
     <UserControl.Resources>
         <Style x:Key="Title"
@@ -38,7 +39,7 @@
             <bootstrap:BootstrapPanel.Header>
                 <Label Style="{StaticResource Title}"
                        Foreground="White">
-                    Agregar nueva empresa o proveedor.
+                    Agregar nueva Entidad (empresa, proveedor o persona.)
                 </Label>
             </bootstrap:BootstrapPanel.Header>
             <Grid>
@@ -162,7 +163,7 @@
                             IsEnabled="False"
                             HorizontalAlignment="Center"
                             Name="BtnCancel"
-                            Click="CancelarEmpresa_Click"
+                            Click="CancelarEntidad_Click"
                             Content=" Cancelar "/>
                     
                     <bootstrap:Alert Type="Info"

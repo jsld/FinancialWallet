@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseContext.cs" />
+    <Compile Include="Entidad.cs" />
     <Compile Include="MasterData.cs" />
     <Compile Include="MasterType.cs" />
     <Compile Include="Program.cs" />

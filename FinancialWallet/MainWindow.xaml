@@ -7,26 +7,26 @@
         xmlns:view="clr-namespace:FinancialWallet.Views"
         Title="Financial Wallet: Administrador" MinHeight="650" MinWidth="800">
 
-    <TabControl TabStripPlacement="Left">
-        <TabItem Header="Button">
+    <TabControl TabStripPlacement="Left" x:Name="MainTabControl">
+        <TabItem Header="Button" x:Name="ButtonTab">
             <view:Buttons/>
         </TabItem>
 
-        <TabItem Header="List">
+        <TabItem Header="List" x:Name="ListTab">
             <view:List/>
         </TabItem>
 
-        <TabItem Header="Text">
+        <TabItem Header="Text" x:Name="TextTab">
             <view:Text/>
         </TabItem>
         
-        <TabItem Header="ProgressBar">
+        <TabItem Header="ProgressBar" x:Name="ProgressBarTab">
             <view:ProgressBar/>
         </TabItem>
-        <TabItem Header="Panel">
+        <TabItem Header="Panel" x:Name="PanelTab">
             <view:Panel/>
         </TabItem>
-        <TabItem Header="Agregar Empresa">
+        <TabItem Header="Agregar Empresa" x:Name="AgregarEmpresaTab">
             <view:AddEmpresaView/>
         </TabItem>
     </TabControl>

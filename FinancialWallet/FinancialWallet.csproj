@@ -178,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\SaveController.cs" />
+    <Compile Include="Controller\ViewController.cs" />
+    <Compile Include="Messages\ResponseBase.cs" />
+    <Compile Include="Messages\ResponseEntity.cs" />
     <Compile Include="Models\EmpresaViewModel.cs" />
     <Compile Include="Resources\GlobalValues.cs" />
     <Compile Include="Views\AddEmpresaView.xaml.cs">
