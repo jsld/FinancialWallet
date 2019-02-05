@@ -11,15 +11,15 @@ namespace DataBase
         public int EntidadId { get; set; }
 
         [Column("NOMBRE")]
-        public string Codigo { get; set; }
+        public string Nombre { get; set; }
 
         [Column("CODIGO")]
-        public string Texto { get; set; }
+        public string Codigo { get; set; }
 
         [Column("TIPO")]
-        [ForeignKey("MasterData")]
+        [ForeignKey("Tipo")]
         public int TipoId { get; set; }
 
-        public virtual MasterData MasterData { get; set; }
+        public virtual MasterData Tipo { get; set; }
     }
 }

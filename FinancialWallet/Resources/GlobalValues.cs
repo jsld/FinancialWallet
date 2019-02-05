@@ -8,11 +8,11 @@ namespace FinancialWallet.Resources
 {
     public class GlobalValues
     {
-        public const string EMPRESA = "EMPRESA";
+        public const string EMPRESA = "Empresa";
 
-        public const string PROVEEDOR = "PROVEEDOR";
+        public const string PROVEEDOR = "Proveedor";
         
-        public const string PERSONA = "PERSONA";
+        public const string PERSONA = "Persona";
 
         public static string ENTIDAD
         {

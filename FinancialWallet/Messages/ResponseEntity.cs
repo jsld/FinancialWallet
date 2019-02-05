@@ -11,6 +11,6 @@ namespace FinancialWallet.Messages
     {
         public Entidad Entidad { get; set; }
 
-        public ICollection<Entidad> ListaEntidades { get; set; }
+        public IList<Entidad> ListaEntidades { get; set; }
     }
 }

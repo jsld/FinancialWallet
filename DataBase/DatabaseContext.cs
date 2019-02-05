@@ -31,5 +31,6 @@ namespace DataBase
         public DbSet<MasterData> MasterDataRepositorio { get; set; }
         public DbSet<MasterType> MasterTypeRepositorio { get; set; }
         public DbSet<Entidad> EntidadRepositorio { get; set; }
+        public DbSet<Contacto> ContactoRepositorio { get; set; }
     }
 }

@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contacto.cs" />
     <Compile Include="DatabaseContext.cs" />
     <Compile Include="Entidad.cs" />
     <Compile Include="MasterData.cs" />

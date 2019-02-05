@@ -12,6 +12,7 @@ namespace FinancialWallet.Controller
 {
     public class ViewController
     {
+        #region TAB AGREGAR ENTIDAD
         public static void FillComboboxEntity(ComboBox CBAddEmpresaType)
         {
             try
@@ -37,6 +38,8 @@ namespace FinancialWallet.Controller
                 MessageBox.Show(ex.Message);
             }
         }
+        #endregion
+
 
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Core.Common;
+using System.Data.Entity.SqlServer;
 using System.Data.SQLite;
 using System.Data.SQLite.EF6;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace DataBase
             SetProviderFactory("System.Data.SQLite.EF6", SQLiteProviderFactory.Instance);
             SetProviderServices("System.Data.SQLite", (DbProviderServices)SQLiteProviderFactory
                 .Instance.GetService(typeof(DbProviderServices)));
+            SetProviderServices(SqlProviderServices.ProviderInvariantName, SqlProviderServices.Instance);
         }
     }
 }
