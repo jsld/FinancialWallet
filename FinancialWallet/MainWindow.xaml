@@ -5,7 +5,7 @@
         x:Class="FinancialWallet.MainWindow"
         xmlns:wpf="http://github.com/scheshan/bootstrap"
         xmlns:view="clr-namespace:FinancialWallet.Views"
-        Title="Financial Wallet: Administrador" MinHeight="650" MinWidth="800">
+        Title="Financial Wallet: Administrador" MinHeight="650" MinWidth="900">
 
     <TabControl TabStripPlacement="Left" x:Name="MainTabControl">
         <TabItem Header="Button" x:Name="ButtonTab">
@@ -26,8 +26,11 @@
         <TabItem Header="Panel" x:Name="PanelTab">
             <view:Panel/>
         </TabItem>
-        <TabItem Header="Agregar Empresa" x:Name="AgregarEmpresaTab">
+        <TabItem Header="Agregar Entidad" x:Name="AgregarEntidadTab">
             <view:AddEmpresaView/>
+        </TabItem>
+        <TabItem Header="Eventos" x:Name="EventosTab">
+            <view:EventosView/>
         </TabItem>
     </TabControl>
 </wpf:Dialog>

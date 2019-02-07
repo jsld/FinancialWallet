@@ -38,8 +38,8 @@ namespace FinancialWallet.Views.Modals
             this.Title += name;
             var result = SaveController.GetContactoByEntityCode(code);
             FillContacto(result);
-            
         }
+
         public ResponseBase Response
         {
             get { return response; }

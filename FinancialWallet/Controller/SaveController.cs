@@ -117,6 +117,14 @@ namespace FinancialWallet.Controller
                 {
                     var entidad = context.EntidadRepositorio.Where(x => x.Codigo == code);
                     context.EntidadRepositorio.Remove(entidad.FirstOrDefault());
+                    var contacto = context.ContactoRepositorio
+                        .Where(x => x.EntidadId == entidad.FirstOrDefault().EntidadId);
+                    if (contacto != null)
+                    {
+                        context.ContactoRepositorio.Remove(contacto.FirstOrDefault());
+                    }
+
+                    context.SaveChanges();
                 }
             }
             catch (Exception ex)

@@ -22,6 +22,12 @@
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="FontWeight" Value="DemiBold"/>
         </Style>
+        <Style x:Key="SubTitle2"
+               BasedOn="{StaticResource {x:Type Label}}"
+               TargetType="Label">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+        </Style>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -320,25 +326,25 @@
                                             <ColumnDefinition MaxWidth="80"/>
                                         </Grid.ColumnDefinitions>
                                         <Label Foreground="{StaticResource BgPrimary}"
-                                           Style="{StaticResource SubTitle}"
+                                           Style="{StaticResource SubTitle2}"
                                            HorizontalAlignment="Center"
                                            Grid.Column="0">
                                             Id
                                         </Label>
                                         <Label Foreground="{StaticResource BgPrimary}"
-                                           Style="{StaticResource SubTitle}"
+                                           Style="{StaticResource SubTitle2}"
                                            HorizontalAlignment="Center"
                                            Grid.Column="1">
                                             Nombre
                                         </Label>
                                         <Label Foreground="{StaticResource BgPrimary}"
-                                           Style="{StaticResource SubTitle}"
+                                           Style="{StaticResource SubTitle2}"
                                            HorizontalAlignment="Center"
                                            Grid.Column="2">
                                             Código
                                         </Label>
                                         <Label Foreground="{StaticResource BgPrimary}"
-                                           Style="{StaticResource SubTitle}"
+                                           Style="{StaticResource SubTitle2}"
                                            HorizontalAlignment="Center"
                                            Grid.Column="3">
                                             Acción
