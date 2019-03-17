@@ -213,106 +213,120 @@
                 <TabControl TabStripPlacement="Top">
                     <TabItem Header="Empresas">
                         <Border BorderBrush="#FF000000" BorderThickness="1,1,1,1">
-                            <ScrollViewer>
+                            
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="30px"/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
 
-                                    <Grid Grid.Row="0">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition MaxWidth="100"/>
-                                            <ColumnDefinition/>
-                                            <ColumnDefinition MaxWidth="100"/>
-                                            <ColumnDefinition MaxWidth="182"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Label Foreground="{StaticResource BgPrimary}"
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition MaxWidth="100"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition MaxWidth="100"/>
+                                        <ColumnDefinition MaxWidth="195"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Foreground="{StaticResource BgPrimary}"
                                            Style="{StaticResource SubTitle}"
-                                           HorizontalAlignment="Center"
+                                           HorizontalContentAlignment="Center"
+                                           BorderBrush="#FF000000"
+                                           BorderThickness="1,1,1,1"
                                            Grid.Column="0">
-                                            Id
-                                        </Label>
-                                        <Label Foreground="{StaticResource BgPrimary}"
+                                        Id
+                                    </Label>
+                                    <Label Foreground="{StaticResource BgPrimary}"
                                            Style="{StaticResource SubTitle}"
-                                           HorizontalAlignment="Center"
+                                           HorizontalContentAlignment="Center"
+                                           BorderBrush="#FF000000"
+                                           BorderThickness="1,1,1,1"
                                            Grid.Column="1">
-                                            Nombre
-                                        </Label>
-                                        <Label Foreground="{StaticResource BgPrimary}"
+                                        Nombre
+                                    </Label>
+                                    <Label Foreground="{StaticResource BgPrimary}"
                                            Style="{StaticResource SubTitle}"
-                                           HorizontalAlignment="Center"
+                                           HorizontalContentAlignment="Center"
+                                           BorderBrush="#FF000000"
+                                           BorderThickness="1,1,1,1"
                                            Grid.Column="2">
-                                            Código
-                                        </Label>
-                                        <Label Foreground="{StaticResource BgPrimary}"
+                                        Código
+                                    </Label>
+                                    <Label Foreground="{StaticResource BgPrimary}"
                                            Style="{StaticResource SubTitle}"
-                                           HorizontalAlignment="Center"
+                                           HorizontalContentAlignment="Center"
+                                           BorderBrush="#FF000000"
+                                           BorderThickness="1,1,1,1"
                                            Grid.Column="3">
-                                            Acción
-                                        </Label>
-                                    </Grid>
-
-                                    <StackPanel x:Name="empresasPanel" Grid.Row="1">
+                                        Acción
+                                    </Label>
+                                </Grid>
+                                <ScrollViewer Grid.Row="1">
+                                    <StackPanel x:Name="empresasPanel">
 
                                     </StackPanel>
-                                </Grid>
-                            </ScrollViewer>
+                                </ScrollViewer>
+                            </Grid>
                         </Border>
                     </TabItem>
                     <TabItem Header="Proveedores">
                         <Border BorderBrush="#FF000000" BorderThickness="1,1,1,1">
-                            <ScrollViewer>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="30px"/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30px"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
 
-                                    <Grid Grid.Row="0">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition MaxWidth="100"/>
-                                            <ColumnDefinition/>
-                                            <ColumnDefinition MaxWidth="100"/>
-                                            <ColumnDefinition MaxWidth="80"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Label Foreground="{StaticResource BgPrimary}"
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition MaxWidth="100"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition MaxWidth="100"/>
+                                        <ColumnDefinition MaxWidth="195"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Foreground="{StaticResource BgPrimary}"
                                            Style="{StaticResource SubTitle}"
-                                           HorizontalAlignment="Center"
+                                           HorizontalContentAlignment="Center"
+                                           BorderBrush="#FF000000"
+                                           BorderThickness="1,1,1,1"
                                            Grid.Column="0">
-                                            Id
-                                        </Label>
-                                        <Label Foreground="{StaticResource BgPrimary}"
+                                        Id
+                                    </Label>
+                                    <Label Foreground="{StaticResource BgPrimary}"
                                            Style="{StaticResource SubTitle}"
-                                           HorizontalAlignment="Center"
+                                           HorizontalContentAlignment="Center"
+                                           BorderBrush="#FF000000"
+                                           BorderThickness="1,1,1,1"
                                            Grid.Column="1">
-                                            Nombre
-                                        </Label>
-                                        <Label Foreground="{StaticResource BgPrimary}"
+                                        Nombre
+                                    </Label>
+                                    <Label Foreground="{StaticResource BgPrimary}"
                                            Style="{StaticResource SubTitle}"
-                                           HorizontalAlignment="Center"
+                                           HorizontalContentAlignment="Center"
+                                           BorderBrush="#FF000000"
+                                           BorderThickness="1,1,1,1"
                                            Grid.Column="2">
-                                            Código
-                                        </Label>
-                                        <Label Foreground="{StaticResource BgPrimary}"
+                                        Código
+                                    </Label>
+                                    <Label Foreground="{StaticResource BgPrimary}"
                                            Style="{StaticResource SubTitle}"
-                                           HorizontalAlignment="Center"
+                                           HorizontalContentAlignment="Center"
+                                           BorderBrush="#FF000000"
+                                           BorderThickness="1,1,1,1"
                                            Grid.Column="3">
-                                            Acción
-                                        </Label>
-                                    </Grid>
-
-                                    <StackPanel x:Name="proveedoresPanel" Grid.Row="1">
-                                    
-                                    </StackPanel>
+                                        Acción
+                                    </Label>
                                 </Grid>
-                            </ScrollViewer>
+                                <ScrollViewer Grid.Row="1">
+                                    <StackPanel x:Name="proveedoresPanel">
+
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </Grid>
                         </Border>
                     </TabItem>
                     <TabItem Header="Personas">
                         <Border BorderBrush="#FF000000" BorderThickness="1,1,1,1">
-                            <ScrollViewer>
-                                <Grid>
+                            <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="30px"/>
                                         <RowDefinition/>
@@ -323,39 +337,47 @@
                                             <ColumnDefinition MaxWidth="100"/>
                                             <ColumnDefinition/>
                                             <ColumnDefinition MaxWidth="100"/>
-                                            <ColumnDefinition MaxWidth="80"/>
+                                            <ColumnDefinition MaxWidth="195"/>
                                         </Grid.ColumnDefinitions>
                                         <Label Foreground="{StaticResource BgPrimary}"
-                                           Style="{StaticResource SubTitle2}"
-                                           HorizontalAlignment="Center"
+                                           Style="{StaticResource SubTitle}"
+                                           HorizontalContentAlignment="Center"
+                                           BorderBrush="#FF000000"
+                                           BorderThickness="1,1,1,1"
                                            Grid.Column="0">
                                             Id
                                         </Label>
                                         <Label Foreground="{StaticResource BgPrimary}"
-                                           Style="{StaticResource SubTitle2}"
-                                           HorizontalAlignment="Center"
+                                           Style="{StaticResource SubTitle}"
+                                           HorizontalContentAlignment="Center"
+                                           BorderBrush="#FF000000"
+                                           BorderThickness="1,1,1,1"
                                            Grid.Column="1">
                                             Nombre
                                         </Label>
                                         <Label Foreground="{StaticResource BgPrimary}"
-                                           Style="{StaticResource SubTitle2}"
-                                           HorizontalAlignment="Center"
+                                           Style="{StaticResource SubTitle}"
+                                           HorizontalContentAlignment="Center"
+                                           BorderBrush="#FF000000"
+                                           BorderThickness="1,1,1,1"
                                            Grid.Column="2">
                                             Código
                                         </Label>
                                         <Label Foreground="{StaticResource BgPrimary}"
-                                           Style="{StaticResource SubTitle2}"
-                                           HorizontalAlignment="Center"
+                                           Style="{StaticResource SubTitle}"
+                                           HorizontalContentAlignment="Center"
+                                           BorderBrush="#FF000000"
+                                           BorderThickness="1,1,1,1"
                                            Grid.Column="3">
                                             Acción
                                         </Label>
                                     </Grid>
+                                <ScrollViewer Grid.Row="1">
+                                    <StackPanel x:Name="personasPanel">
 
-                                    <StackPanel x:Name="personasPanel" Grid.Row="1">
-
-                                </StackPanel>
-                                </Grid>
-                            </ScrollViewer>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </Grid>
                         </Border>
                     </TabItem>
                 </TabControl>

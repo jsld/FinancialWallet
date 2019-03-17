@@ -162,6 +162,7 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="80"/>
                                     <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="300"/>
                                     <ColumnDefinition Width="140"/>
                                     <ColumnDefinition Width="140"/>
@@ -198,7 +199,7 @@
                                                BorderThickness="1,1,1,1"
                                                HorizontalContentAlignment="Center"
                                                Grid.Column="2">
-                                    Nombre
+                                    Detalle
                                 </Label>
                                 <Label Foreground="{StaticResource BgPrimary}"
                                                Style="{StaticResource SubTitle}"
@@ -206,7 +207,7 @@
                                                BorderThickness="1,1,1,1"
                                                HorizontalContentAlignment="Center"
                                                Grid.Column="3">
-                                    Fecha Adjudicado
+                                    Nombre
                                 </Label>
                                 <Label Foreground="{StaticResource BgPrimary}"
                                                Style="{StaticResource SubTitle}"
@@ -214,14 +215,22 @@
                                                BorderThickness="1,1,1,1"
                                                HorizontalContentAlignment="Center"
                                                Grid.Column="4">
+                                    Fecha Adjudicado
+                                </Label>
+                                <Label Foreground="{StaticResource BgPrimary}"
+                                               Style="{StaticResource SubTitle}"
+                                               BorderBrush="#FF000000"
+                                               BorderThickness="1,1,1,1"
+                                               HorizontalContentAlignment="Center"
+                                               Grid.Column="5">
                                     Estado Ejecución
                                 </Label>
                                 <Label Foreground="{StaticResource BgPrimary}"
                                            Style="{StaticResource SubTitle}"
                                            BorderBrush="#FF000000"
-                                           BorderThickness="1,1,1,1"
+                                           BorderThickness="14,1,1,1"
                                            HorizontalContentAlignment="Center"
-                                           Grid.Column="5">
+                                           Grid.Column="6">
                                     Fecha Ejecución
                                 </Label>
                                 <Label Foreground="{StaticResource BgPrimary}"
@@ -229,7 +238,7 @@
                                            BorderBrush="#FF000000"
                                            BorderThickness="1,1,1,1"
                                            HorizontalContentAlignment="Center"
-                                           Grid.Column="6">
+                                           Grid.Column="7">
                                     Contra parte
                                 </Label>
                                 <Label Foreground="{StaticResource BgPrimary}"
@@ -237,7 +246,7 @@
                                            BorderBrush="#FF000000"
                                            BorderThickness="1,1,1,1"
                                            HorizontalContentAlignment="Center"
-                                           Grid.Column="7">
+                                           Grid.Column="8">
                                     Código
                                 </Label>
                                 <Label Foreground="{StaticResource BgPrimary}"
@@ -245,7 +254,7 @@
                                            BorderBrush="#FF000000"
                                            BorderThickness="1,1,1,1"
                                            HorizontalContentAlignment="Center"
-                                           Grid.Column="8">
+                                           Grid.Column="9">
                                     Monto
                                 </Label>
                                 <Label Foreground="{StaticResource BgPrimary}"
@@ -253,7 +262,7 @@
                                            BorderBrush="#FF000000"
                                            BorderThickness="1,1,1,1"
                                            HorizontalContentAlignment="Center"
-                                           Grid.Column="9">
+                                           Grid.Column="10">
                                     Orden de Compra
                                 </Label>
                                 <Label Foreground="{StaticResource BgPrimary}"
@@ -261,7 +270,7 @@
                                            BorderBrush="#FF000000"
                                            BorderThickness="1,1,1,1"
                                            HorizontalContentAlignment="Center"
-                                           Grid.Column="10">
+                                           Grid.Column="11">
                                     Factura
                                 </Label>
                                 <Label Foreground="{StaticResource BgPrimary}"
@@ -269,7 +278,7 @@
                                            BorderBrush="#FF000000"
                                            BorderThickness="1,1,1,1"
                                            HorizontalContentAlignment="Center"
-                                           Grid.Column="11">
+                                           Grid.Column="12">
                                     Estado Pago
                                 </Label>
                                 <Label Foreground="{StaticResource BgPrimary}"
@@ -277,7 +286,7 @@
                                            BorderBrush="#FF000000"
                                            BorderThickness="1,1,1,1"
                                            HorizontalContentAlignment="Center"
-                                           Grid.Column="12">
+                                           Grid.Column="13">
                                     Fecha Pago
                                 </Label>
                                 <Label Foreground="{StaticResource BgPrimary}"
@@ -285,7 +294,7 @@
                                            BorderBrush="#FF000000"
                                            BorderThickness="1,1,1,1"
                                            HorizontalContentAlignment="Center"
-                                           Grid.Column="13">
+                                           Grid.Column="14">
                                     Información Contacto
                                 </Label>
                                 <Label Foreground="{StaticResource BgPrimary}"
@@ -293,7 +302,7 @@
                                            BorderBrush="#FF000000"
                                            BorderThickness="1,1,1,1"
                                            HorizontalContentAlignment="Center"
-                                           Grid.Column="14">
+                                           Grid.Column="15">
                                     Comentarios
                                 </Label>
                             </Grid>

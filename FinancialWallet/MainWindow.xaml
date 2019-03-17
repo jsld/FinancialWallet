@@ -8,7 +8,7 @@
         Title="Financial Wallet: Administrador" MinHeight="650" MinWidth="900">
 
     <TabControl TabStripPlacement="Left" x:Name="MainTabControl">
-        <TabItem Header="Button" x:Name="ButtonTab">
+        <!--<TabItem Header="Button" x:Name="ButtonTab">
             <view:Buttons/>
         </TabItem>
 
@@ -25,7 +25,7 @@
         </TabItem>
         <TabItem Header="Panel" x:Name="PanelTab">
             <view:Panel/>
-        </TabItem>
+        </TabItem>-->
         <TabItem Header="Agregar Entidad" x:Name="AgregarEntidadTab">
             <view:AddEmpresaView/>
         </TabItem>

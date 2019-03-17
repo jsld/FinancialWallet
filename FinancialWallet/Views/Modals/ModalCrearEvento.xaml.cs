@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FinancialWallet.Views
+namespace FinancialWallet.Views.Modals
 {
     /// <summary>
-    /// Lógica de interacción para AddNewService.xaml
+    /// Lógica de interacción para ModalCrearEvento.xaml
     /// </summary>
-    public partial class AddNewService : UserControl
+    public partial class ModalCrearEvento : Window
     {
-        public AddNewService()
+        public ModalCrearEvento()
         {
             InitializeComponent();
         }

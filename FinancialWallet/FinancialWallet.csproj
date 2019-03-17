@@ -193,9 +193,6 @@
     <Compile Include="Views\AddEmpresaView.xaml.cs">
       <DependentUpon>AddEmpresaView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddNewServiceView.xaml.cs">
-      <DependentUpon>AddNewServiceView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Buttons.xaml.cs">
       <DependentUpon>Buttons.xaml</DependentUpon>
     </Compile>
@@ -207,6 +204,9 @@
     </Compile>
     <Compile Include="Views\Modals\ModalCrearContacto.xaml.cs">
       <DependentUpon>ModalCrearContacto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modals\ModalCrearEvento.xaml.cs">
+      <DependentUpon>ModalCrearEvento.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Panel.xaml.cs">
       <DependentUpon>Panel.xaml</DependentUpon>
@@ -236,10 +236,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddNewServiceView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Buttons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -253,6 +249,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Modals\ModalCrearContacto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Modals\ModalCrearEvento.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
